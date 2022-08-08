@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Venue = new Schema({
+const Truck = new Schema({
 	name: {
 		type: String,
 		required: true,
@@ -18,16 +18,8 @@ const Venue = new Schema({
 		type: String,
 		required: true,
 	},
-	address: {
+	category: {
 		type: String,
-		required: true,
-	},
-	lat: {
-		type: Number,
-		required: true,
-	},
-	lng: {
-		type: Number,
 		required: true,
 	},
 	facebook: {
@@ -52,4 +44,4 @@ const Venue = new Schema({
 	},
 });
 
-module.exports = mongoose.model("Venue", Venue);
+module.exports = mongoose.model("Truck", Truck);
