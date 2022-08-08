@@ -1,4 +1,4 @@
-const Venue = require("../models.venue.js");
+const Venue = require("../models/venue");
 
 const getAllVenues = () => Venue.find();
 
