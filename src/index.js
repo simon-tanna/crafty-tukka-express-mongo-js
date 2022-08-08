@@ -12,7 +12,7 @@ app.use(express.json());
 
 mongoose.connect(dbConnect, {}, err => {
 	if (err) {
-		console.log(e, "database connection error")
+		console.log(e, "Database connection error")
 	} else {
 		console.log("Connection established to database ")
 	}
