@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const router = require("../routes/venues-routes");
+const venueRouter = require("../routes/venues-routes");
+const truckRouter = require("../routes/trucks-routes")
 
 const PORT = 4000;
 const dbConnect = "mongodb://localhost/crafty_tukka_mongo_db";
@@ -10,7 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/", router)
+app.use("/", venueRouter);
+app.use("/", truckRouter)
 
 mongoose.connect(dbConnect, {}, (err) => {
 	if (err) {
