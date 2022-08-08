@@ -8,4 +8,16 @@ const addTruck = (body) => {
 	return Truck(body);
 };
 
-module.exports = { getAllTrucks, getTruckById, addTruck };
+const deleteTruck = (id) => Truck.findByIdAndRemove(id);
+
+const amendTruck = (id, body) => {
+	return Truck.findByIdAndUpdate(id, body, { new: true });
+};
+
+module.exports = {
+	getAllTrucks,
+	getTruckById,
+	addTruck,
+	deleteTruck,
+	amendTruck,
+};

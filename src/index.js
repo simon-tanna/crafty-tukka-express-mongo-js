@@ -7,10 +7,9 @@ const truckRouter = require("../routes/trucks-routes");
 require("dotenv").config();
 
 const PORT = 4000;
-// const dbConnect = "mongodb://localhost/crafty_tukka_mongo_db";
-const uri = process.env.ATLAS_URI;
+const uri = "mongodb://localhost/crafty_tukka_mongo_db";
+// const uri = process.env.ATLAS_URI;
 const app = express();
-
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
