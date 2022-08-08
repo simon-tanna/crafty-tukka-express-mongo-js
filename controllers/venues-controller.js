@@ -2,6 +2,8 @@ const {
 	getAllVenues,
 	getVenueById,
 	addVenue,
+	deleteVenue,
+	amendVenue,
 } = require("../utils/venues-utils");
 
 const getVenues = (req, res) => {
@@ -40,4 +42,28 @@ const createVenue = (req, res) => {
 	});
 };
 
-module.exports = { getVenues, getVenue, createVenue };
+const removeVenue = (req, res) => {
+	deleteVenue(req.params.id).exec((err) => {
+		if (err) {
+			res.status(404);
+			return res.json({ error: err.message });
+		} else {
+			res.status(200);
+			return res.json({ success: "Venue Removed" });
+		}
+	});
+};
+
+const updateVenue = (req, res) => {
+	amendVenue(req.params.id, req.body).exec((err, venue) => {
+		if (err) {
+			res.status(404);
+			return res.json({ error: err.message });
+		} else {
+			res.status(200);
+			res.send(venue);
+		}
+	});
+};
+
+module.exports = { getVenues, getVenue, createVenue, removeVenue, updateVenue };

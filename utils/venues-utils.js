@@ -8,4 +8,10 @@ const addVenue = (body) => {
 	return Venue(body);
 };
 
-module.exports = { getAllVenues, getVenueById, addVenue };
+const deleteVenue = (id) => Venue.findByIdAndRemove(id);
+
+const amendVenue = (id, body) => {
+	return Venue.findByIdAndUpdate(id, body, { new: true });
+};
+
+module.exports = { getAllVenues, getVenueById, addVenue, deleteVenue, amendVenue };
