@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const venueRouter = require("../routes/venues-routes");
 const truckRouter = require("../routes/trucks-routes");
+const eventRouter = require("../routes/events-routes");
 //environment variables
 require("dotenv").config();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/", venueRouter);
 app.use("/", truckRouter);
+app.use("/", eventRouter);
 
 mongoose.connect(uri, {}, (err) => {
 	if (err) {
