@@ -3,20 +3,21 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const venueRouter = require("../routes/venues-routes");
 const truckRouter = require("../routes/trucks-routes");
+const eventRouter = require("../routes/events-routes");
 //environment variables
 require("dotenv").config();
 
 const PORT = 4000;
-// const dbConnect = "mongodb://localhost/crafty_tukka_mongo_db";
-const uri = process.env.ATLAS_URI;
+const uri = "mongodb://localhost/crafty_tukka_mongo_db";
+// const uri = process.env.ATLAS_URI;
 const app = express();
-
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/", venueRouter);
 app.use("/", truckRouter);
+app.use("/", eventRouter);
 
 mongoose.connect(uri, {}, (err) => {
 	if (err) {
