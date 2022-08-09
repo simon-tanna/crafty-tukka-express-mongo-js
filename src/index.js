@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const venueRouter = require("../routes/venues-routes");
 const truckRouter = require("../routes/trucks-routes");
 const eventRouter = require("../routes/events-routes");
+const authRouter = require("../routes/auth-routes");
 //environment variables
 require("dotenv").config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("/", venueRouter);
 app.use("/", truckRouter);
 app.use("/", eventRouter);
+app.use("/auth", authRouter);
 
 mongoose.connect(uri, {}, (err) => {
 	if (err) {
