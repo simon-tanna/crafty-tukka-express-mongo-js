@@ -12,7 +12,7 @@ const Venue = new Schema({
 		required: true,
 		unique: true
 	},
-	password: {
+	hash_password: {
 		type: String,
 		required: true,
 	},
